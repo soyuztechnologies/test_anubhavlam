@@ -1,5 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="lam.fin.ar.controller.View1">
-    <Page title="View">
+    <Page title="View 1">
         <headerContent>
             <Button icon="sap-icon://action" press="goTo"></Button>
         </headerContent>
