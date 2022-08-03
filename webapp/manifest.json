@@ -1,0 +1,131 @@
+{
+    "sap.app":{
+        "id": "lam.fin.ar",
+        "type": "application",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "dataSources": {
+            "anubhavService":{
+                "uri": "/sap/opu/odata/sap/ZLAM_AB_ODATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "ach": "FIN-AR-ACC",
+        "description": "{{appDesc}}",
+        "title": "{{appTitle}}",
+        "i18n": "i18n/i18n.properties"
+    },
+    "sap.ui5": {
+        "dependencies": {
+            "minUI5Version": "1.90",
+            "libs": {
+                "sap.ui.core": {
+                    "minVersion": "1.90"
+                },
+                "sap.m": {
+                    "minVersion": "1.90"
+                }
+            }
+        },
+        "contentDensities": {"compact": true, "cozy": true},
+        "models": {
+            "": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "anubhavService"
+            },
+            "local":{
+                "type": "sap.ui.model.json.JSONModel",
+                "preload": true,
+                "uri": "models/mockdata/fruits.json"
+            },
+            "i18n":{
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {"bundleUrl": "i18n/i18n.properties"}
+            }
+        },
+        "rootView":{
+            "viewName": "lam.fin.ar.view.App",
+            "id": "idRoot",
+            "type": "XML"
+        },
+        "routing": {
+            "config": {
+                "viewPath": "lam.fin.ar.view",
+                "viewType": "XML",
+                "routerClass": "sap.m.routing.Router",
+                "controlId": "idAppCon"
+            },
+            "routes": [{
+                "name": "master",
+                "pattern": "",
+                "target": ["joe", "biden"]
+            },{
+                "name": "detail",
+                "pattern": "fruits/{fruitId}",
+                "target": ["joe", "modi"]
+            },{
+                "name": "supplier",
+                "pattern": "suppliers/{supplierId}",
+                "target": ["joe", "putin"]
+            },{
+                "name": "add",
+                "pattern": "AddNewProduct",
+                "target": ["joe", "macron"]
+            },{
+                "name": "order",
+                "pattern": "createNewOrder",
+                "target": ["joe", "elargon"]
+            }],
+            "targets": {
+                "joe": {
+                    "viewName": "View1",
+                    "controlAggregation": "masterPages",
+                    "viewId": "idView1"
+                },
+                "biden":{
+                    "viewName": "Empty",
+                    "controlAggregation": "detailPages",
+                    "viewId": "idEmpty"
+                },
+                "modi":{
+                    "viewName": "View2",
+                    "controlAggregation": "detailPages",
+                    "viewId": "idView2"
+                },
+                "putin":{
+                    "viewName": "View3",
+                    "controlAggregation": "detailPages",
+                    "viewId": "idView3"
+                },
+                "macron":{
+                    "viewName": "Add",
+                    "controlAggregation": "detailPages",
+                    "viewId": "idView4"
+                },
+                "elargon":{
+                    "viewName": "Order",
+                    "controlAggregation": "detailPages",
+                    "viewId": "idView5"
+                }
+
+            }
+        }   
+    },
+    "sap.ui":{
+        "deviceTypes":{
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "technology": "UI5",
+        "supportedThemes": [
+            "sap_fiori_3",
+            "sap_fiori_3_dark"
+        ],
+        "fullWidth": true
+    }
+}

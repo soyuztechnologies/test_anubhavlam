@@ -1,0 +1,25 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+controllerName="lam.fin.ar.controller.Empty">
+    <Page title="Home Page">
+        <Image width="90%" height="100%" src="https://wallpapers-hub.art/wallpaper-images/240159.jpg"></Image>
+    </Page>
+</mvc:View>
+
+
+<!-- <DisplayListItem label="Apple" value="Best Antibiotic in the world"></DisplayListItem>
+                <StandardListItem icon="https://c.ndtvimg.com/2019-04/dl9g6gn8_bananas_625x300_11_April_19.jpg" title="Banana" description="Source of potassium"></StandardListItem>
+                <InputListItem>
+                    <HBox>
+                        <Text class="sapUiTinyMarginTop sapUiMediumMarginRight" text="Which is your favourite Fruit"></Text>
+                        <Input class="sapUiMediumMarginLeft" width="60%"></Input>
+                    </HBox>
+                </InputListItem>
+                <ObjectListItem title="Pineapple" intro="Good for glowing skin" number="100 Rs." numberUnit="Per Pc" icon="https://media.istockphoto.com/photos/whole-with-slice-ripe-pineapple-isolated-on-white-background-picture-id1064819674" ></ObjectListItem>
+                <CustomListItem>
+                    <HBox>
+                        <Text class="sapUiTinyMarginTop sapUiMediumMarginRight" text="Do you want Cash on Deliver"></Text>
+                        <Switch></Switch>
+                    </HBox>
+                </CustomListItem>
+                <FeedListItem sender="Mr. Modi"  text="hey Anubhav, how are you! maan ki baat" icon="https://upload.wikimedia.org/wikipedia/commons/c/c0/Official_Photograph_of_Prime_Minister_Narendra_Modi_Potrait.png" timestamp="Just Now"></FeedListItem>
+                <ActionListItem text="Order Now" press="goTo"></ActionListItem> -->

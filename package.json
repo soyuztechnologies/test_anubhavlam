@@ -1,0 +1,17 @@
+{
+  "name": "lamfiorilikeapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "ui5":{
+    "dependencies":[ "@sap/ux-ui5-tooling" ]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sap/ux-ui5-tooling": "^1.6.7"
+  }
+}

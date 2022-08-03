@@ -1,0 +1,37 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+     controllerName="lam.fin.ar.controller.View3">
+    <Page title="{name}" showNavButton="true" navButtonPress="goBack">
+        <content>
+            <ObjectHeader title="{name}" intro="{sinceWhen}" icon="sap-icon://supplier"
+            number="{contactPerson}" numberUnit="{contactNo}"></ObjectHeader>
+            <Select id="chartType" change="onChartChange">
+                <core:Item key="column" text="Column"></core:Item>
+                <core:Item key="bullet" text="Bullet"></core:Item>
+                <core:Item key="bubble" text="Bubble"></core:Item>
+                <core:Item key="donut" text="Donut"></core:Item>
+                <core:Item key="radar" text="Radar"></core:Item>
+            </Select>
+            <viz:VizFrame id="myFrame" width="100%" uiConfig="{applicationSet: 'fiori'}">
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{suppFruits}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="name" value="{name}"></viz.data:DimensionDefinition>
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="quantity" value="{quantity}"></viz.data:MeasureDefinition>
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+                <viz:feeds>
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="name"></viz.feeds:FeedItem>
+                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="quantity"></viz.feeds:FeedItem>
+                </viz:feeds>
+            </viz:VizFrame>
+
+        </content>
+    </Page>
+</mvc:View>

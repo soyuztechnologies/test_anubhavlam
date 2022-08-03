@@ -1,0 +1,93 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+xmlns:l="sap.ui.layout"
+xmlns:f="sap.ui.layout.form"
+xmlns:core="sap.ui.core"
+controllerName="lam.fin.ar.controller.Order">
+    <Page title="Order (Deep Insert)">
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm id="SimpleFormChange354"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Create New Order"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false" >
+                <f:content>
+                    <Label text="Order Id" />
+                    <Input enabled="false" id="name" value="{ord>/orderData/SoId}"/>
+                    <Label text="Buyer Id" />
+                    <Input value="{ord>/orderData/BuyerId}" showValueHelp="true" valueHelpRequest="onF4Help"/>
+                    <Text text="{ord>/orderData/BuyerName}" />
+                    <Label text="Amount / Currency" />
+                    <Input value="{ord>/orderData/GrossAmount}">
+                        <layoutData>
+                            <l:GridData span="XL1 L2 M2 S4" />
+                        </layoutData>
+                    </Input>
+                    <Input value="{ord>/orderData/CurrencyCode}" />
+                </f:content>
+            </f:SimpleForm>
+            <Panel headerText="Order Items" expandable="true">
+                <Table id="idOrderTable" mode="Delete" items="{ord>/orderData/To_Items}">
+                    <headerToolbar>
+                        <OverflowToolbar id="otbSubheader">
+                            <Title text="Order Items" level="H2" />
+                            <ToolbarSpacer />
+                            <Button id="addButton" text="Add" icon="sap-icon://add" type="Transparent"
+                                press="addItem" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                     <columns>
+                        <Column >
+                            <Text text="Product" showValueHelp="true" valueHelpRequest="onF4Prod"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true" >
+                            <Text text="Quantity" />
+                        </Column>
+                        <Column>
+                            <Text text="Price" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true" >
+                            <Text text="Note" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <HBox>
+                                    <Input value="{ord>ProductId}"/>
+                                    <Text id="prodName"></Text>
+                                </HBox>                                
+                                <HBox>
+                                    <Input type="Number" width="90px" value="{ord>Quantity}"></Input>
+                                    <Input width="30px" value="{ord>QuantityUnit}"></Input>
+                                </HBox>
+                                <HBox>
+                                    <Input type="Number" width="180px" value="{ord>GrossAmount}"></Input>
+                                    <Input width="40px" value="{ord>CurrencyCode}"></Input>
+                                </HBox>
+                                <Input value="{ord>Note}"></Input>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+        </VBox>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button press="onSave" text="Save" type="Accept"></Button>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
